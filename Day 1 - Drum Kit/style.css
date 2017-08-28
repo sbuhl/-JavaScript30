@@ -1,0 +1,37 @@
+body{
+  background: url('http://cdt29.media.tourinsoft.com/upload/9C70C107-FC67-4FC4-9D8E-C1344AB1F3E5/concert-29.jpg') no-repeat  fixed;
+  background-size:cover
+}
+
+main {
+  background: white;
+  height: 500px;
+  width: 80%;
+  margin: auto;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  resize: both;
+  overflow: auto;
+}
+
+main div {
+  background: black;
+  color: white;
+  width: 90%;
+  padding: 20px;
+  resize: both;
+  overflow: auto;
+}
+.key{
+  background-black;
+  border : 1px solid white;
+  margin: 0 5px 0;
+  border-radius:5px;
+  transition: all 0.07s
+}
+.playing{
+  transform: scale(1.1);
+  border : 1px solid yellow;
+}
