@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>CSS + JS Clock</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div class="clock">
+	<div class="clock-face">
+		<div class="hand hour-hand"></div>
+		<div class="hand min-hand"></div>
+		<div class="hand sec-hand"></div>
+		<div class="les5 douze"></div>
+		<!-- <div class="les5 un"></div>
+		<div class="les5 deux"></div> -->
+		<div class="les5 trois"></div>
+		<!-- <div class="les5 quatre"></div>
+		<div class="les5 cinq"></div> -->
+		<div class="les5 six"></div>
+		<!-- <div class="les5 sept"></div>
+		<div class="les5 huit"></div> -->
+		<div class="les5 neuf"></div>
+		<!-- <div class="les5 dix"></div>
+		<div class="les5 onze"></div> -->
+	</div>
+</div>
+<script type="">
+	const secondHand = document.querySelector('.sec-hand');
+	const minHand = document.querySelector('.min-hand');
+	const hourHand = document.querySelector('.hour-hand');
+	function setDate(){
+		const now = new Date();
+		const seconds = now.getSeconds();
+		const secondDegree = ((seconds/60)*360) +90;
+		if(secondDegree == 444){
+			secondHand.style.transition = `none`;
+		}
+		secondHand.style.transform = `rotate(${secondDegree}deg)`;
+		const minutes = now.getMinutes();
+		const minutesDegree = ((minutes/60*360))+90;
+		if(minutesDegree == 444){
+			secondHand.style.transition = `none`;
+		}
+		minHand.style.transform = `rotate(${minutesDegree}deg)`;
+		const hours = now.getHours();
+		const hoursDegree = ((hours/12*360))+90;
+		if(hoursDegree == 444){
+			secondHand.style.transition = `none`;
+		}
+		hourHand.style.transform = `rotate(${hoursDegree}deg)`;
+	}
+
+	setInterval(setDate, 1000);
+
+</script>
+
+</body>
+</html>
