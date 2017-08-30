@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Playing with CSS Variables and JS</title>
+
+	<link href="https://fonts.googleapis.com/css?family=Istok+Web" rel="stylesheet">
+
+	<style type="text/css">
+		:root{
+			--spacing : 5px;
+			--blur: 5px;
+			--base: #DFB25D;
+		}
+		body{
+			background: rgb(176,166,156);
+			text-align: center;
+			font-family: 'Istok Web', sans-serif;
+			font-size: 62.5%;
+			color: rgb(45,48,53);
+		}
+		h2{
+			
+			font-size: 2.4rem;
+		}
+		span{
+			color : var(--base);
+		}
+		img{
+			filter: blur(var(--blur));
+			padding: var(--spacing);
+			background-color: var(--base);
+		}
+		label{
+			font-size: 1.5rem;
+		}
+		.controls{
+			margin-bottom: 60px;
+		}
+	</style>
+
+</head>
+<body>
+	<h2>Playing with CSS Variables and <span class="hl">JS</span></h2>
+	<div class="controls">
+		<label for="range">Spacing :</label>
+		<input type="range" name="spacing" value="5" min="0" max="25" step="1" data-sizing="px">
+
+		<label for="blur">Blur :</label>
+		<input type="range" name="blur" value="5" min="0" max="25" step="1" data-sizing="px">
+
+		<label for="base">Base Color :</label>
+		<input type="color" name="base" value=#DFB25D>
+	</div>
+	
+	<img src="https://dosmagazine.com/en/wp-content/uploads/2013/10/Breaking-Bad-Heisenberg-1-DM.jpg" alt="Breaking-Bad-Heisenberg">
+
+<script type="text/javascript">
+	const inputs = document.querySelectorAll('.controls input');
+
+	function handleUpdate() {
+		const suffix = this.dataset.sizing || '';
+		document.documentElement.style.setProperty(`--${this.name}`, this.value + suffix);
+	}
+
+	inputs.forEach(input => input.addEventListener('change', handleUpdate));
+	inputs.forEach(input => input.addEventListener('mousemove', handleUpdate));
+</script>
+
+</body>
+</html>
