@@ -4,11 +4,17 @@
 	{
 		"name": "Process All Remaining Files and Folders",
 		"stepType": 1,
-		"uuidString": "06B95B9C-E0B4-44E1-B273-70F89381F8BE"
+		"uuidString": "483C6759-3B72-473E-B662-A62948702DA2"
 		}
 	],
 "creatorBuild": "25900",
 "files": {
+	"\/build": {
+		"ft": 65536,
+		"oA": 1,
+		"oAP": "\/build\/build",
+		"oF": 0
+		},
 	"\/index.html": {
 		"ft": 8192,
 		"oA": 2,
@@ -21,10 +27,10 @@
 "manualImportLinks": {
 	},
 "projectAttributes": {
-	"creationDate": 525863724,
-	"displayValue": "Day 4 - Array Cardio Day 1",
+	"creationDate": 525971683,
+	"displayValue": "Day 5 - Flex Panels Image Gallery ",
 	"displayValueWasSetByUser": 0,
-	"iconImageName": "brackets_brown"
+	"iconImageName": "meme-wonka"
 	},
 "projectSettings": {
 	"abortBuildOnError": 1,
