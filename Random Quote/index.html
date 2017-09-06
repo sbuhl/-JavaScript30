@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Type Ahead 👀</title>
+  <title>Random Quote of LOTR</title>
   <style type="text/css">
-        html {
+    html {
       box-sizing: border-box;
       background:#ffc600;
       font-family:'helvetica neue';
@@ -87,23 +87,32 @@
 <div id="body"></div>
 
   <form class="search-form">
-    <button class="random">Random</button>
+    <button class="random" onclick="displayQuotes()">Random</button>
   </form>
+  <div id="author"></div>
+  <div id="quote"></div>
 <script>
 const endpoint = 'json.json';
-
 const quotes = [];
 
 fetch(endpoint)
   .then(blob => blob.json())
   .then(data => quotes.push(...data))
 
-function displayQuotes() {
-  const quote = quotes[01];
-  document.getElementById('body').innerHTML = `${this.value}`;
+var quote = {};
+function hasard(tab){
+  return tab[Math.floor(Math.random()*50)];
 }
-  const random = document.querySelector('.random');
-  random.addEventListener('click', displayQuotes);
+function getQuote(){
+  quote = hasard(quotes);
+  return quote;
+}
+function displayQuotes(){
+  getQuote();
+  document.getElementById("author").innerHTML = quote.author;
+  document.getElementById("quote").innerHTML = quote.quote;
+}
+
 
 
 
