@@ -6,93 +6,45 @@
   <style type="text/css">
     html {
       box-sizing: border-box;
-      background:#ffc600;
       font-family:'helvetica neue';
       font-size: 20px;
       font-weight: 200;
     }
-    *, *:before, *:after {
-      box-sizing: inherit;
-    }
-    input {
-      width: 100%;
-      padding:20px;
-    }
-
-    .search-form {
-      max-width:400px;
-      margin:50px auto;
-    }
-
-    input.search {
-      margin: 0;
-      text-align: center;
-      outline:0;
-      border: 10px solid #F7F7F7;
-      width: 120%;
-      left: -10%;
-      position: relative;
-      top: 10px;
-      z-index: 2;
-      border-radius: 5px;
-      font-size: 40px;
-      box-shadow: 0 0 5px rgba(0, 0, 0, 0.12), inset 0 0 2px rgba(0, 0, 0, 0.19);
-    }
-
-
-    .suggestions {
-      margin: 0;
-      padding: 0;
-      position: relative;
-      /*perspective:20px;*/
-    }
-    .suggestions li {
-      background:white;
-      list-style: none;
-      border-bottom: 1px solid #D8D8D8;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.14);
-      margin:0;
-      padding:20px;
-      transition:background 0.2s;
-      display:flex;
-      justify-content:space-between;
-      text-transform: capitalize;
-    }
-
-    .suggestions li:nth-child(even) {
-      transform: perspective(100px) rotateX(3deg) translateY(2px) scale(1.001);
-      background: linear-gradient(to bottom,  #ffffff 0%,#EFEFEF 100%);
-    }
-    .suggestions li:nth-child(odd) {
-      transform: perspective(100px) rotateX(-3deg) translateY(3px);
-      background: linear-gradient(to top,  #ffffff 0%,#EFEFEF 100%);
-    }
-
-    span.population {
-      font-size: 15px;
-    }
-
-    .hl {
-      background:#ffc600;
-    }
-
-    a {
-      color:black;
-      background:rgba(0,0,0,0.1);
-      text-decoration: none;
-    }
+    .jumbotron{
+  margin-top:50px;
+}
   </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>  
 </head>
 <body>
-<div id="body"></div>
 
-  <form class="search-form">
-    <button class="random" onclick="displayQuotes()">Random</button>
-  </form>
-  <div id="author"></div>
-  <div id="quote"></div>
+  <div class="container">  
+  <div class="jumbotron">
+    <h1 class="display-3">Random Quote from LOTR</h1>
+    <blockquote class="blockquote text-center">
+      <p class="mb-0 lead" id="quote"></p>
+      <footer class="blockquote-footer" id="author"><cite title="Source Title"> LOTR</cite></footer>
+    </blockquote>
+    <p><button class="random btn btn-lg btn-success" onclick="displayQuotes()">Random</button></p>
+    <p><button class="btn btn-lg" id="tweet-quote" title="Tweet this quote!" target="_blank">Prout
+      
+    </button></p>
+    <p><a class="twitter-share-button"
+    href="https://twitter.com/intent/tweet?hashtags=quotes&related=freecodecamp&text="+ encodeURIComponent('"' + quote.quote + '" ' + quote.author))
+  data-size="large">
+Tweet</a></p>
+  </div>
+</div>    
+
+
+ 
+
+
 <script>
-const endpoint = 'json.json';
+const endpoint = 'https://raw.githubusercontent.com/sbuhl/-JavaScript30/master/Random%20Quote/json.json';
 const quotes = [];
 
 fetch(endpoint)
@@ -113,7 +65,13 @@ function displayQuotes(){
   document.getElementById("quote").innerHTML = quote.quote;
 }
 
-
+$(document).ready(function() {
+  displayQuotes();
+  $('#tweet-quote').on('click', function() {
+      openURL('https://twitter.com/intent/tweet?hashtags=quotes&related=freecodecamp&text=');
+    });
+  
+});
 
 
 </script>
