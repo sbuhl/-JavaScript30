@@ -4,7 +4,7 @@
 	{
 		"name": "Process All Remaining Files and Folders",
 		"stepType": 1,
-		"uuidString": "39E9019F-D1AF-434D-AA22-B73ACF12126C"
+		"uuidString": "1410770A-E1B7-4DFF-8622-26E4FE7FB12D"
 		}
 	],
 "creatorBuild": "25900",
@@ -27,10 +27,10 @@
 "manualImportLinks": {
 	},
 "projectAttributes": {
-	"creationDate": 527141600,
-	"displayValue": "Day 8 - Fun with HTML5 Canvas",
+	"creationDate": 527247723,
+	"displayValue": "Day 10 - Hold Shift to check multiple checkboxes",
 	"displayValueWasSetByUser": 0,
-	"iconImageName": "meme-ariel"
+	"iconImageName": "meme-yesBaby"
 	},
 "projectSettings": {
 	"abortBuildOnError": 1,
